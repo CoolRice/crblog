@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block article %} 
+
+<article class="clearfix blog-article">
+    <header class="article-header">
+        <h1 class="article-title">
+            <a href="" title="">[{{article.type}}]</a>
+            <a href="{{ request.path }}{{article.slug}}" title=""> {{article.title}}</a>
+        </h1>
+        <div class="clearfix article-meta">
+            <span class="pull-left">
+                <time class="fa fa-calendar" datetime="{{article.date|date:"Y年m月d日"}}">&nbsp;&nbsp;{{article.date|date:"Y年m月d日"}}</time>
+                <span class="dot">|</span>
+                <span class="categories-links fa fa-folder-o">
+                    <a href="{{ request.path }}{{article.category.slug}}" rel="category tag" title="">&nbsp;&nbsp;{{article.category}}</a>
+                </span>
+                <span class="dot">|</span>
+            </span>
+            <span class="visible-lg visible-md visible-sm pull-left">
+                <span class="fa fa-eye">&nbsp;&nbsp;{{article.clickCount}} views</span>
+            </span>
+        </div>
+    </header>
+    <div class="article-summary article-content clearfix">
+        <a href="http://9iphp.com/web/javascript/1191.html" data-original-title="" title=""></a>
+        <p>{% autoescape off %}{{article.content}}{% endautoescape %}</p>
+    </div>
+    <footer class="article-footer clearfix visible-lg visible-md visible-sm">
+        <div class="pull-left footer-tag">
+        {% for tag in article.tags.all %}
+            <a href="{{ request.path }}{{tag.slug}}" rel="tag" data-original-title="" title="">{{tag.name}}</a>
+        {% endfor %}   
+        </div>
+    </footer>
+</article>
+{% endblock %}
+
+
