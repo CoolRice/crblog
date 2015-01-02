@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^crblog/', include('crblog.foo.urls')),
     
     # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^myadmin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     
     # Uncomment the next line to enable the admin:
     url(r'^myadmin/', include(admin.site.urls)),
